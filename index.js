@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
 const fs = require("fs");
-const render = require("./lib/shapes");
+const shapes = require("./lib/shapes");
 
 inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
 svg = "";
@@ -32,8 +32,29 @@ inquirer
     },
   ])
   .then((answers) => {
-    console.log(answers);
-    svg = render.render(answers);
+    let newShape;
+    switch (answers.shape) {
+      case "Circle":
+        newShape = new shapes.Circle(
+          answers.text,answers.textColor,answers.ShapeColor
+        )
+        break;
+      case "Triangle":
+        newShape = new shapes.Triangle()
+        break;
+      case "Square":
+        newShape = new shapes.Square()
+        break;
+      default:
+        console.log("Shape not implmented");
+    }
+  
+
+    newShape.setColor(answers.ShapeColor)
+    newShape.setText(answers.text)
+    newShape.setTextColor(answers.textColor)
+
+    const svg = newShape.render()
 
     fs.writeFile("logo.svg", svg, (err) =>
       err ? console.log(err) : console.log("Generated logo.svg")
