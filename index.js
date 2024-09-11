@@ -36,25 +36,24 @@ inquirer
     switch (answers.shape) {
       case "Circle":
         newShape = new shapes.Circle(
-          answers.text,answers.textColor,answers.ShapeColor
+          {text:answers.text,textColor:answers.textColor,shapeColor:answers.shapeColor}
         )
         break;
       case "Triangle":
         newShape = new shapes.Triangle(
-          answers.text,answers.textColor,answers.ShapeColor
+          {text:answers.text,textColor:answers.textColor,shapeColor:answers.shapeColor}
         )
         break;
       case "Square":
         newShape = new shapes.Square(
-          answers.text,answers.textColor,answers.ShapeColor
+          {text:answers.text,textColor:answers.textColor,shapeColor:answers.shapeColor}
         )
         break;
       default:
         console.log("Shape not implmented");
     }
   
-
-    newShape.setColor(answers.ShapeColor)
+    newShape.setColor(answers.shapeColor)
     newShape.setText(answers.text)
     newShape.setTextColor(answers.textColor)
 
