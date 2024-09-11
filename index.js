@@ -40,10 +40,14 @@ inquirer
         )
         break;
       case "Triangle":
-        newShape = new shapes.Triangle()
+        newShape = new shapes.Triangle(
+          answers.text,answers.textColor,answers.ShapeColor
+        )
         break;
       case "Square":
-        newShape = new shapes.Square()
+        newShape = new shapes.Square(
+          answers.text,answers.textColor,answers.ShapeColor
+        )
         break;
       default:
         console.log("Shape not implmented");
@@ -54,7 +58,7 @@ inquirer
     newShape.setText(answers.text)
     newShape.setTextColor(answers.textColor)
 
-    const svg = newShape.render()
+    const svg = newShape.renderSVG()
 
     fs.writeFile("logo.svg", svg, (err) =>
       err ? console.log(err) : console.log("Generated logo.svg")
