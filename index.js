@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const MaxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
 const fs = require("fs");
-const shapes = require("./lib/shapes");
+const {Circle,Triangle,Square} = require("./lib/shapes");
 
 inquirer.registerPrompt("maxlength-input", MaxLengthInputPrompt);
 svg = "";
@@ -35,13 +35,13 @@ inquirer
     let newShape;
     switch (answers.shape) {
       case "Circle":
-        newShape = new shapes.Circle();
+        newShape = new Circle();
         break;
       case "Triangle":
-        newShape = new shapes.Triangle();
+        newShape = new Triangle();
         break;
       case "Square":
-        newShape = new shapes.Square();
+        newShape = new Square();
         break;
       default:
         console.log("Shape not implmented");
