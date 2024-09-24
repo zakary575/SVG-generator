@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" height="200" width="300">
-    <polygon points="50,0 50,200 250,200 250,0"  fill="purple" />
-    <text x="65" y="130" fill="black" font-size="60">ZSJ</text>
+    <circle cy="100" cx="150" r="100" fill="purple" />
+    <text x="65" y="125" fill="black" font-size="100">ZSJ</text>
   </svg>
